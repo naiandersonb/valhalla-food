@@ -4,11 +4,6 @@ import Homepage from "./pages/home";
 import MenuPage from "./pages/menu";
 import AboutPage from "./pages/about";
 
-const homeBtn = document.getElementById("home");
-const menuBtn = document.getElementById("menu");
-const aboutBtn = document.getElementById("about");
-const logo = document.querySelector(".logo");
-
 const homePage = Homepage();
 const menuPage = MenuPage();
 const aboutPage = AboutPage();
@@ -24,22 +19,50 @@ const renderPage = (page) => {
   content.appendChild(page);
 };
 
-window.addEventListener("DOMContentLoaded", () => {
-  renderPage(homePage);
-});
+const savePageState = (pageName) => {
+  localStorage.setItem("currentPage", pageName);
+};
 
-homeBtn.addEventListener("click", () => {
-  renderPage(homePage);
-});
+const getPageState = () => {
+  return localStorage.getItem("currentPage") || "home";
+};
 
-logo.addEventListener("click", () => {
-  renderPage(homePage);
-});
+const init = () => {
+  const homeBtn = document.getElementById("home");
+  const menuBtn = document.getElementById("menu");
+  const aboutBtn = document.getElementById("about");
+  const logo = document.querySelector(".logo");
 
-menuBtn.addEventListener("click", () => {
-  renderPage(menuPage);
-});
+  const routes = {
+    home: homePage,
+    menu: menuPage,
+    about: aboutPage,
+  };
 
-aboutBtn.addEventListener("click", () => {
-  renderPage(aboutPage);
-});
+  const currentPage = getPageState();
+  const pageToRender = routes[currentPage] || homePage;
+
+  homeBtn.addEventListener("click", () => {
+    renderPage(homePage);
+    savePageState("home");
+  });
+
+  menuBtn.addEventListener("click", () => {
+    renderPage(menuPage);
+    savePageState("menu");
+  });
+
+  aboutBtn.addEventListener("click", () => {
+    renderPage(aboutPage);
+    savePageState("about");
+  });
+
+  logo.addEventListener("click", () => {
+    renderPage(homePage);
+    savePageState("home");
+  });
+
+  renderPage(pageToRender);
+};
+
+window.addEventListener("DOMContentLoaded", init);
