@@ -10,19 +10,49 @@
   --zinc-800: #27272a;
   --zinc-900: #18181b;
   --zinc-950: #09090b;
+
+  --indigo-50: #eef2ff;
+  --indigo-100: #e0e7ff;
+  --indigo-200: #c7d2fe;
+  --indigo-300: #a5b4fc;
+  --indigo-400: #818cf8;
+  --indigo-500: #6366f1;
+  --indigo-600: #4f46e5;
+  --indigo-700: #4338ca;
+  --indigo-800: #3730a3;
+  --indigo-900: #312e81;
+  --indigo-950: #1e1b4b;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--zinc-50);
 }
 
 body {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  background-color: var(--zinc-50);
+  background-color: var(--zinc-950);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .header {
@@ -31,14 +61,17 @@ body {
   justify-content: space-between;
   height: 80px;
   padding: 0 1rem;
-  border-bottom: 1px solid var(--zinc-200);
-  background-color: var(--zinc-50);
+  background-color: var(--zinc-950);
 }
 
 .logo {
   font-size: 1.2rem;
+  font-family: "Rubik", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .tabs {
@@ -56,5 +89,58 @@ body {
 }
 
 .tab:hover {
-  text-decoration: underline;
+  color: var(--indigo-400);
+  transition: color 0.2s ease-in-out;
+}
+
+.hero-container {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-cta {
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  max-width: 600px;
+  color: var(--zinc-400);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.hero-button {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
+  text-transform: uppercase;
+  background-color: var(--zinc-100);
+  color: var(--zinc-900);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-button:hover {
+  background-color: var(--indigo-500);
+  color: var(--zinc-50);
+  transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .hero-cta {
+    font-size: 2.5rem;
+  }
+
+  .hero-button {
+    font-size: 1rem;
+  }
 }
