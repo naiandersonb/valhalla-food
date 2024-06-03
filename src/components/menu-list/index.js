@@ -5,10 +5,10 @@ export function MenuList() {
   const menuList = document.createElement("div");
   menuList.classList.add("container", "menu-list-container");
 
-  menuItems.forEach((item) => {
+  for(const item of menuItems) {
     const card = MenuCard(item.title, item.description, item.image);
     menuList.appendChild(card);
-  });
+  }
 
   return menuList;
 }
