@@ -2,7 +2,7 @@ import MenuPage from "../../pages/menu";
 const goToMenuPage = () => {
   const menuPage = MenuPage();
   const content = document.getElementById("content");
-  content.innerHTML = ''
+  content.innerHTML = "";
   content.appendChild(menuPage);
 };
 
@@ -20,7 +20,7 @@ export function Hero() {
   hero.classList.add("hero-container", "container");
   h1.classList.add("hero-cta");
   paragraph.classList.add("hero-description");
-  button.classList.add("hero-button");
+  button.classList.add("btn", "hero-button");
 
   button.addEventListener("click", goToMenuPage);
 

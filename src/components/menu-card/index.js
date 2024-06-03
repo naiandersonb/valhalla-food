@@ -13,10 +13,15 @@ export function MenuCard(title, description, imageUrl) {
     descriptionEl.classList.add('text')
     descriptionEl.innerText = description
 
+    const buttonEl = document.createElement('button')
+    buttonEl.classList.add('btn')
+    buttonEl.innerText = 'Order Now'
+
 
     menuCard.appendChild(imgEl)
     menuCard.appendChild(titleEl)
     menuCard.appendChild(descriptionEl)
+    menuCard.appendChild(buttonEl)
 
     return menuCard
 }
